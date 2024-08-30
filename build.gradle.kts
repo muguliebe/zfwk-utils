@@ -9,8 +9,8 @@ plugins {
 
 val versionKotest = "5.7.2"
 
-group = "com.github.muguliebe.zfwk"
-version = "0.2.0"
+group = "com.github.muguliebe"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
