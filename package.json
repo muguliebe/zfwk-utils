@@ -1,0 +1,12 @@
+{
+  "name": "zutils-kt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./gradlew build",
+    "publish": "./gradlew clean && ./gradlew build && ./gradlew publish"
+  },
+  "author": "",
+  "license": "ISC"
+}

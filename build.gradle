@@ -1,0 +1,95 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+    id 'application'
+    id 'maven-publish'
+    id 'java-library'
+}
+
+ext {
+    versionKotest = "5.7.2"
+}
+
+group = 'com.egstep'
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+    maven("https://jitpack.io")
+}
+
+java {
+    sourceCompatibility = '17'
+}
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        freeCompilerArgs += '-Xjsr305=strict'
+        jvmTarget = '17'
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:1.4.11"
+    implementation "org.slf4j:slf4j-api:2.0.9"
+    api "org.apache.commons:commons-lang3:3.13.0"
+
+
+    // test
+    testImplementation "org.jetbrains.kotlin:kotlin-test"
+    testImplementation "io.kotest:kotest-runner-junit5:$versionKotest"
+    testImplementation "io.kotest:kotest-assertions-core:$versionKotest"
+    testImplementation "io.kotest:kotest-property:$versionKotest"
+    testImplementation "io.kotest:kotest-framework-datatest:$versionKotest"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
+
+}
+
+sourceSets {
+    main.java.srcDir "src/main/kotlin"
+    main.resources.srcDir "src/main/resources"
+}
+
+jar {
+    enabled = true
+}
+
+if (hasProperty('buildScan')) {
+    buildScan {
+        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+        termsOfServiceAgree = 'yes'
+    }
+}
+publishing {
+    publications {
+        zutils(MavenPublication) {
+            from components.java
+            groupId = group
+            artifactId = rootProject.name
+            version = version
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://jitpack.io")
+        }
+    }
+}
+
+tasks {
+    processResources {
+        duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.INCLUDE
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
