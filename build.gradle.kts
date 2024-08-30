@@ -10,7 +10,7 @@ plugins {
 val versionKotest = "5.7.2"
 
 group = "com.github.muguliebe.zfwk"
-version = "0.1.0"
+version = "0.2.0"
 
 repositories {
     mavenCentral()
@@ -30,7 +30,7 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
-    implementation("ch.qos.logback:logback-classic:1.4.11")
+    implementation("ch.qos.logback:logback-classic:1.4.12")
     implementation("org.slf4j:slf4j-api:2.0.9")
     api("org.apache.commons:commons-lang3:3.13.0")
 
