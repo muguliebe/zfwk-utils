@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeGreaterThan
@@ -11,7 +11,7 @@ import kotlin.time.measureTime
 class GuidUtilsTest : FunSpec({
 
     test("GuidUtils") {
-        val guid = GuidUtils.generate()
+        val guid = com.github.muguliebe.zfwk.zutils.GuidUtils.generate()
         guid.shouldBeTypeOf<String>()
         guid shouldNotBe null
         guid.length shouldBeGreaterThan 0
@@ -22,8 +22,8 @@ class GuidUtilsTest : FunSpec({
         val CNT = 100000
         val elapsed = measureTime {
             for (i in 0 until CNT) {
-                val guid = GuidUtils.generate()
-                guid.length shouldBeLessThanOrEqual GuidUtils.LENGTH
+                val guid = com.github.muguliebe.zfwk.zutils.GuidUtils.generate()
+                guid.length shouldBeLessThanOrEqual com.github.muguliebe.zfwk.zutils.GuidUtils.LENGTH
             }
         }
         println("Elapsed: $elapsed ms, cnt:$CNT")
@@ -31,7 +31,7 @@ class GuidUtilsTest : FunSpec({
 
     test("GuidUtils cannon each")
         .config(timeout=15.milliseconds, invocations = 10, invocationTimeout = 1.milliseconds) {
-            GuidUtils.generate()
+            com.github.muguliebe.zfwk.zutils.GuidUtils.generate()
         }
 
 

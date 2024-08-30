@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import java.time.Instant
 import java.time.LocalDateTime

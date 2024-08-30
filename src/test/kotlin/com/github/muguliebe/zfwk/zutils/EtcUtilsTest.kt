@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeLessThanOrEqual

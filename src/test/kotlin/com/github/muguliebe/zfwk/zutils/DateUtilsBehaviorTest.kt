@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.types.shouldBeTypeOf

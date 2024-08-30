@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 object StringUtils {
 

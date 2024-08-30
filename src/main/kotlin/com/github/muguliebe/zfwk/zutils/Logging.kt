@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import ch.qos.logback.classic.Logger
 import org.slf4j.LoggerFactory

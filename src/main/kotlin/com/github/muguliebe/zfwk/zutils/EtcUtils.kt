@@ -1,4 +1,4 @@
-package zfwk.zutils
+package com.github.muguliebe.zfwk.zutils
 
 import org.apache.commons.lang3.ArchUtils
 import org.apache.commons.lang3.arch.Processor
