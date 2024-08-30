@@ -56,7 +56,7 @@ tasks.jar {
 
 publishing {
     publications {
-        create<MavenPublication>("zutils") {
+        create<MavenPublication>("zfwk-utils") {
             from(components["java"])
             groupId = project.group.toString()
             artifactId = rootProject.name
